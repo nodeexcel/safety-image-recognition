@@ -1,6 +1,10 @@
+import os
 from openai import OpenAI
+from dotend import load_dotenv
 
-client = OpenAI(api_key="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")
+load_dotenv()
+
+client = OpenAI(api_key=os.getenv("OpenAI_Key"))
 
 def process_image(id, prompt):
     response = client.responses.create(
